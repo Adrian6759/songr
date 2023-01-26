@@ -2,21 +2,39 @@ package com.AdrianSongr.songr;
 
 import java.net.URL;
 
+
+
+import javax.annotation.processing.Generated;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Album {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     private String title;
     private String artist;
-    private int songCount;
-    private int length;
+    private Integer songCount;
+    private Double length;
     private String imageURL;
 
+    protected Album(){}
 
-public Album(String title, String artist, int songCount, int length, String imageURL){
+
+public Album(String title, String artist, Integer songCount, Double length, String imageURL){
     this.title = title;
     this.artist = artist;
     this.songCount = songCount;
     this.length = length;
     this.imageURL = imageURL;
 }
+
+    public Long getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
@@ -38,15 +56,15 @@ public Album(String title, String artist, int songCount, int length, String imag
         return songCount;
     }
 
-    public void setSongCount(int songCount) {
+    public void setSongCount(Integer songCount) {
         this.songCount = songCount;
     }
 
-    public int getLength() {
+    public Double getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(Double length) {
         this.length = length;
     }
 
