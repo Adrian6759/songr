@@ -17,3 +17,20 @@ Worked with Sharmarke, Ryan, and Devon. Received some assistance from Raul. Used
 
 Grader can run code by running .gradlew test or by loading project into intelliJ and pressing the run button.
 
+#  Lab 12
+
+## Feature Tasks
+
+Update your Album model so that it can be saved in a database.
+An Album has a title, an artist, a songCount, a length (in seconds), and an imageUrl that is a link to that album’s art.
+A user should be able to see information about all the albums on the site.
+A user should be able to add albums to the site.
+
+
+## Contributions
+Worked with Sharmarke, Ryan, and Devon. Received some assistance from Raul. Used lecture for reference as well as class repo.
+
+## Tests
+
+Grader can run code by running .gradlew test or by loading project into intelliJ and pressing the run button.
+
