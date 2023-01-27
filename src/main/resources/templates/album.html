@@ -6,21 +6,37 @@
 </head>
 <body>
 <main>
-    <ul>
-        <li th:each="album : ${albums}">
-            <div th:text="${album.title}"></div>
-            <img src="" alt="Placeholder">
-            <div>
-                <p th:text="${album.artist}">Artist</p>
-                <p th:text="${album.songCount}">SongCount</p>
-                <p th:text="${album.length}">Length</p>
-            </div>
-        </li>
+    <ul th:each="album : ${albums}">
+        <li th:text="'Album Title : ' + ${album.title}"></li>
+        <li th:text="'Artist : ' + ${album.artist}">Artist</li>
+        <img src="'Image : ' + ${album.imageUrl}" alt="Placeholder">
+        <li th:text="'Song Count : ' + ${album.songCount}">SongCount</li>
+        <li th:text="'Length : ' + ${album.length}">Length</li>
+        <div>Songs:</div>
+        <ul th:each="song : ${album.songs}">
+            <li th:text="'Song Title : ' + ${album.title}"></li>
+            <li th:text="'Song Length : ' + ${album.length}"></li>
+            <li th:text="'Song Track : ' + ${album.songTrack}"></li>
+        </ul>
+
+        <form action="/songs" method="POST">
+            <fieldset>
+                <legend>Add a song.</legend>
+                <label>Title</label>
+                <input type="text" name="title">
+                <label>Length</label>
+                <input type="text" name="length">
+                <label>Track Number</label>
+                <input type="number" name="trackNumber">
+                <input type="hidden" name="albumTitle" th:value="${album.title}">
+                <input type="submit" value="Add Song">
+            </fieldset>
+        </form>
     </ul>
-    <form action="/" method="POST">
+    <form action="/albums" method="POST">
         <fieldset>
-            <legend>Add Salmon Cookies Store</legend>
-            <label> Title</label>
+            <legend>Add an Album</legend>
+            <label>Title</label>
             <input type="text" name="title"/>
             <label>Artist</label>
             <input type="text" name="artist">

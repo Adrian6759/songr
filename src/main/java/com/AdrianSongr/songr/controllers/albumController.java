@@ -1,12 +1,13 @@
-package com.AdrianSongr.songr;
+package com.AdrianSongr.songr.controllers;
 
+import com.AdrianSongr.songr.models.Album;
+import com.AdrianSongr.songr.repositories.AlbumsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -39,10 +40,10 @@ AlbumsRepository albumsRepository;
         return word.toUpperCase();
     }
     // post route to stores
-    @PostMapping("/stores")
+    @PostMapping("/albums")
     public RedirectView createAnAlbum(String title, String artist, Integer songCount, Double length, String imageURL){
         // create new store
-        Album albums = new Album("title", "artist", 5, 29.8, "url");
+        Album albums = new Album(title, artist, songCount, length, imageURL);
         // add it to the DB
         albumsRepository.save(albums);
         return new RedirectView("/albums");
