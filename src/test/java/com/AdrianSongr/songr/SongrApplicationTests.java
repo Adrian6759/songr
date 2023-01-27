@@ -1,12 +1,10 @@
 package com.AdrianSongr.songr;
 
+import com.AdrianSongr.songr.models.Album;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.net.URL;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @SpringBootTest
 class SongrApplicationTests {

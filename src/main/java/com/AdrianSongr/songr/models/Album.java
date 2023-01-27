@@ -1,14 +1,11 @@
-package com.AdrianSongr.songr;
+package com.AdrianSongr.songr.models;
 
 import java.net.URL;
-
+import java.util.List;
 
 
 import javax.annotation.processing.Generated;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Album {
@@ -20,6 +17,8 @@ public class Album {
     private Integer songCount;
     private Double length;
     private String imageURL;
+    @OneToMany(mappedBy = "songAlbum")
+    private List<Song> songs;
 
     protected Album(){}
 
@@ -32,8 +31,20 @@ public Album(String title, String artist, Integer songCount, Double length, Stri
     this.imageURL = imageURL;
 }
 
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
